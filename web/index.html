@@ -1,0 +1,130 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="icon" href="data:,"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ravens Season Sim 2026</title>
+<style>
+:root{--p:#241773;--p2:#1a0f57;--p3:#3a2a9a;--g:#9e7c0c;--g2:#d4af37;--k:#0b0718;--w:#f4f1ff;--mut:#b9b0e0;--win:#2fbf71;--loss:#e04848}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(1200px 600px at 20% -10%,#3b2a9b 0,transparent 60%),linear-gradient(180deg,#120a35,#07040f);color:var(--w);font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;min-height:100vh}
+.wrap{max-width:1280px;margin:0 auto;padding:14px}
+.banner{display:flex;align-items:stretch;border:2px solid var(--g2);border-radius:6px;overflow:hidden;box-shadow:0 6px 30px #0008}
+.banner .logo{background:linear-gradient(135deg,var(--g2),var(--g));color:var(--k);font-weight:900;padding:10px 18px;display:flex;flex-direction:column;justify-content:center;letter-spacing:1px}
+.banner .logo b{font-size:28px;line-height:1}.banner .logo small{font-size:11px;font-weight:800}
+.banner .title{flex:1;background:linear-gradient(90deg,var(--p),var(--p3));padding:10px 18px;display:flex;flex-direction:column;justify-content:center}
+.banner h1{margin:0;font-size:26px;font-weight:900;letter-spacing:2px;text-transform:uppercase;font-style:italic}
+.banner .sub{font-size:12px;color:var(--mut);letter-spacing:1px;text-transform:uppercase}
+.banner .rec{background:var(--k);padding:8px 20px;text-align:center;display:flex;flex-direction:column;justify-content:center;border-left:2px solid var(--g2)}
+.rec b{font-size:34px;font-weight:900;color:var(--g2);line-height:1}.rec span{font-size:11px;letter-spacing:2px;color:var(--mut)}
+.ticker{background:var(--g2);color:var(--k);font-weight:800;font-size:12px;letter-spacing:1px;padding:4px 10px;text-transform:uppercase;white-space:nowrap;overflow:hidden;border-radius:0 0 6px 6px;margin:0 4px}
+.badge{display:inline-block;background:var(--loss);color:#fff;padding:1px 6px;border-radius:3px;margin-right:8px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
+.tile{background:linear-gradient(180deg,var(--p3),var(--p2));border-top:4px solid var(--g2);border-radius:6px;padding:12px;text-align:center;position:relative;overflow:hidden}
+.tile .v{font-size:40px;font-weight:900;font-variant-numeric:tabular-nums}.tile .l{font-size:11px;letter-spacing:2px;color:var(--mut);text-transform:uppercase}
+.tile .d{font-size:13px;font-weight:800;min-height:17px}.up{color:var(--win)}.dn{color:var(--loss)}
+.grid{display:grid;grid-template-columns:1.25fr 1fr;gap:14px}
+.panel{background:#120b33cc;border:1px solid #3d2f8f;border-radius:6px;overflow:hidden;margin-bottom:14px}
+.panel h2{margin:0;font-size:14px;letter-spacing:2px;text-transform:uppercase;background:linear-gradient(90deg,var(--p),transparent);border-left:5px solid var(--g2);padding:8px 12px;font-style:italic}
+.panel .body{padding:10px 12px}
+.game{display:grid;grid-template-columns:42px 1fr 120px 128px;align-items:center;gap:8px;padding:6px 4px;border-bottom:1px solid #2a2066;font-size:14px}
+.game:last-child{border-bottom:0}.wk{color:var(--g2);font-weight:900;font-size:12px}
+.opp{font-weight:700}.opp small{display:block;color:var(--mut);font-weight:400;font-size:11px}
+.res{font-weight:900}.res.W{color:var(--win)}.res.L{color:var(--loss)}
+.bar{height:8px;background:#2a2066;border-radius:4px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--g),var(--g2))}
+.pp{font-size:12px;font-variant-numeric:tabular-nums}.src{font-size:10px;padding:1px 5px;border-radius:3px;margin-left:4px;font-weight:800;letter-spacing:.5px}
+.src.spread{background:var(--g2);color:var(--k)}.src.elo{background:#4b3cb5;color:#fff}
+.btns{display:flex;gap:4px;justify-content:flex-end}.btns button{border:1px solid #5a4bc4;background:#1b1150;color:var(--w);font-weight:900;border-radius:4px;padding:5px 9px;cursor:pointer;font-size:12px}
+.btns button.on.W{background:var(--win);border-color:var(--win);color:#04130a}.btns button.on.L{background:var(--loss);border-color:var(--loss)}.btns button.on.A{background:var(--g2);color:var(--k);border-color:var(--g2)}
+.game.forced{background:#2b1f73}
+.dist{display:flex;align-items:flex-end;gap:3px;height:150px;padding-top:10px}
+.dist div{flex:1;background:linear-gradient(180deg,var(--g2),var(--g));border-radius:3px 3px 0 0;position:relative;min-height:1px}
+.dist div span{position:absolute;top:-15px;left:0;right:0;text-align:center;font-size:9px;color:var(--mut)}
+.distx{display:flex;gap:3px}.distx span{flex:1;text-align:center;font-size:10px;color:var(--mut)}
+table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}th{font-size:10px;letter-spacing:1px;color:var(--mut);text-align:right;padding:4px;text-transform:uppercase}th:first-child,td:first-child{text-align:left}
+td{padding:6px 4px;text-align:right;border-top:1px solid #2a2066}tr.bal td{background:#2b1f73;font-weight:800}tr.bal td:first-child{border-left:4px solid var(--g2)}
+.chip{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.need li{margin:5px 0;font-size:13px}.need b{color:var(--g2)}.k{font-size:11px;color:var(--mut)}
+.foot{font-size:11px;color:var(--mut);line-height:1.5}.foot a{color:var(--g2)}
+.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px;font-size:12px;color:var(--mut)}
+.toolbar button{background:var(--g2);color:var(--k);border:0;font-weight:900;padding:6px 12px;border-radius:4px;cursor:pointer;letter-spacing:1px}
+#busy{position:fixed;top:12px;right:12px;background:var(--g2);color:var(--k);font-weight:900;padding:6px 12px;border-radius:4px;display:none;letter-spacing:1px;z-index:9}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.tiles{grid-template-columns:repeat(2,1fr)}.banner{flex-wrap:wrap}.banner .rec{flex:1}.game{grid-template-columns:34px 1fr 92px;}.game .btns{grid-column:1/-1}.banner h1{font-size:20px}.banner .title{order:3;flex-basis:100%;border-top:2px solid var(--g2)}.banner .logo{flex:1}.ticker{white-space:normal}.game .k{display:none}}
+</style></head><body><div id="busy">SIMULATING 10,000 SEASONS…</div>
+<div class="wrap">
+ <div class="banner"><div class="logo"><b>BAL</b><small>2026 SEASON</small></div>
+  <div class="title"><h1>Ravens Season Sim</h1><div class="sub">10,000 Monte Carlo seasons · click any remaining game to force a W or L</div></div>
+  <div class="rec"><b id="rec">–</b><span>RECORD</span></div><div class="rec"><b id="divrec" style="font-size:22px">–</b><span>AFC NORTH</span></div></div>
+ <div class="ticker" id="ticker"><span class="badge">MODEL ESTIMATE</span>Not a prediction from ESPN or any outlet · Elo-style ratings from 2026 results + real point spreads where ESPN lists them</div>
+ <div class="tiles">
+  <div class="tile"><div class="l">Projected Wins</div><div class="v" id="t-wins">–</div><div class="d" id="d-wins"></div></div>
+  <div class="tile"><div class="l">Playoff Odds</div><div class="v" id="t-po">–</div><div class="d" id="d-po"></div></div>
+  <div class="tile"><div class="l">AFC North Title</div><div class="v" id="t-div">–</div><div class="d" id="d-div"></div></div>
+  <div class="tile"><div class="l">#1 Seed / Bye</div><div class="v" id="t-bye">–</div><div class="d" id="d-bye"></div></div>
+ </div>
+ <div class="grid"><div>
+  <div class="panel"><h2>Schedule &amp; Game Control</h2><div class="body">
+   <div class="toolbar"><button id="reset">RESET ALL</button><span id="forcedinfo">No games forced.</span></div>
+   <div id="sched"></div></div></div>
+ </div><div>
+  <div class="panel"><h2>Projected Win Distribution</h2><div class="body"><div class="dist" id="dist"></div><div class="distx" id="distx"></div><div class="k" style="margin-top:6px">Share of 10,000 simulated seasons ending with each regular-season win total.</div></div></div>
+  <div class="panel"><h2>AFC North Race</h2><div class="body"><table id="north"></table></div></div>
+  <div class="panel"><h2>What Has To Happen</h2><div class="body need" id="need"></div></div>
+ </div></div>
+ <div class="panel"><h2>Model &amp; Sources</h2><div class="body foot" id="foot"></div></div>
+</div>
+<script src="sim.js"></script>
+<script>
+(async function(){
+const season=window.SEASON||await (await fetch('season.json')).json();
+const T=season.teams,F='BAL';let forced={};let base=null,last=null;
+const q=new URLSearchParams(location.search);(q.get('force')||'').split(',').filter(Boolean).forEach(x=>{const[a,b]=x.split(':');if(b==='W'||b==='L')forced[a]=b;});
+const pc=x=>(100*x).toFixed(x>0.995||x<0.005?1:0)+'%';
+const fmtDate=d=>new Date(d).toLocaleDateString('en-US',{month:'short',day:'numeric',timeZone:'America/New_York'});
+const balGames=season.games.filter(g=>g.home===F||g.away===F);
+function rec(team){const b=RavensSim.baseRecords(season).T[team];return b.w+'-'+b.l+(b.t?'-'+b.t:'');}
+const B=RavensSim.baseRecords(season).T;
+document.getElementById('rec').textContent=rec(F);
+document.getElementById('divrec').textContent=B[F].dw+'-'+B[F].dl;
+function run(){document.getElementById('busy').style.display='block';
+  setTimeout(()=>{const t0=performance.now();last=RavensSim.simulate(season,{forced});if(!base)base=Object.keys(forced).length?RavensSim.simulate(season,{}):last;
+    last.ms=performance.now()-t0;render();document.getElementById('busy').style.display='none';window.__simDone=(window.__simDone||0)+1;window.__last=last;},30);}
+function delta(a,b,isPct){const d=a-b;if(Math.abs(d)<(isPct?0.0005:0.005))return '';const s=(d>0?'▲ +':'▼ ')+(isPct?(100*d).toFixed(1)+' pts':d.toFixed(1));return `<span class="${d>0?'up':'dn'}">${s} vs. baseline</span>`;}
+function render(){const o=last,N=o.N;
+ document.getElementById('t-wins').textContent=o.expWins.toFixed(1);document.getElementById('d-wins').innerHTML=delta(o.expWins,base.expWins,false);
+ [['po',o.playoff,base.playoff],['div',o.div,base.div],['bye',o.bye,base.bye]].forEach(([k,v,b])=>{document.getElementById('t-'+k).textContent=pc(v/N);document.getElementById('d-'+k).innerHTML=delta(v/N,b/N,true);});
+ const gm={};o.games.forEach(g=>gm[g.id]=g);
+ document.getElementById('sched').innerHTML=balGames.map(g=>{const home=g.home===F,opp=home?g.away:g.home,on=T[opp];
+  const oppTxt=`<div class="opp"><span class="chip" style="background:${on.color}"></span>${home?'vs':'@'} ${on.short} <small>${fmtDate(g.date)} · ${on.name}</small></div>`;
+  if(g.completed){const us=home?g.hs:g.as,th=home?g.as:g.hs,r=us>th?'W':us<th?'L':'T';return `<div class="game"><div class="wk">WK ${g.week}</div>${oppTxt}<div class="res ${r}">${r} ${us}–${th}</div><div class="k" style="text-align:right">FINAL</div></div>`;}
+  const G=gm[g.id],p=home?G.prob.p:1-G.prob.p,f=forced[g.id];
+  return `<div class="game ${f?'forced':''}" data-id="${g.id}"><div class="wk">WK ${g.week}</div>${oppTxt}<div><div class="pp">${f?('<b>FORCED '+f+'</b>'):('Win '+pc(p))}<span class="src ${G.prob.src}" title="${G.prob.label}">${G.prob.src==='spread'?G.prob.label.split(' (')[0]:'ELO'}</span></div><div class="bar"><i style="width:${(f?(f==='W'?1:0):p)*100}%"></i></div></div>
+   <div class="btns"><button class="A ${!f?'on':''}" data-f="">AUTO</button><button class="W ${f==='W'?'on':''}" data-f="W">W</button><button class="L ${f==='L'?'on':''}" data-f="L">L</button></div></div>`;}).join('');
+ const nf=Object.keys(forced).length;document.getElementById('forcedinfo').textContent=nf?`${nf} game${nf>1?'s':''} forced · deltas vs. un-forced baseline · ${o.ms.toFixed(0)} ms`:`No games forced · seed ${o.seed} · ${N.toLocaleString()} sims · ${o.ms.toFixed(0)} ms`;
+ const mx=Math.max(...o.winDist);const lo=3,hi=17;let h='',x='';
+ for(let w=lo;w<=hi;w++){const c=o.winDist[w];h+=`<div style="height:${100*c/mx}%;${w===Math.round(o.expWins)?'background:linear-gradient(180deg,#fff,var(--g2))':''}" title="${w} wins: ${pc(c/N)}"><span>${c/N>=0.005?pc(c/N):''}</span></div>`;x+=`<span>${w}</span>`;}
+ document.getElementById('dist').innerHTML=h;document.getElementById('distx').innerHTML=x;
+ const rows=Object.keys(o.divTable).map(a=>({a,...o.divTable[a]})).sort((x,y)=>y.div-x.div);
+ document.getElementById('north').innerHTML='<tr><th>Team</th><th>Now</th><th>Proj W</th><th>Div</th><th>Playoffs</th></tr>'+rows.map(r=>`<tr class="${r.a===F?'bal':''}"><td><span class="chip" style="background:${T[r.a].color}"></span>${T[r.a].short}</td><td>${rec(r.a)}</td><td>${(r.wins/N).toFixed(1)}</td><td>${pc(r.div/N)}</td><td>${pc(r.playoff/N)}</td></tr>`).join('');
+ // what has to happen
+ const bw=Object.keys(o.byWins).map(Number).sort((a,b)=>a-b);
+ const magic=bw.find(w=>o.byWins[w].n>=50&&o.byWins[w].p/o.byWins[w].n>=0.9&&bw.filter(v=>v>w).every(v=>o.byWins[v].p/o.byWins[v].n>=0.9));
+ const coin=bw.find(w=>o.byWins[w].n>=50&&o.byWins[w].p/o.byWins[w].n>=0.5);
+ const rem=balGames.filter(g=>!g.completed).length,cur=B[F].w;
+ const big=o.games.filter(g=>g.focusGame&&!forced[g.id]&&g.nHome>30&&g.nAway>30).map(g=>{const home=g.home===F;const pw=home?g.pIfHome:g.pIfAway,pl=home?g.pIfAway:g.pIfHome;return{g,pw,pl,sw:pw-pl,opp:home?g.away:g.home,home};}).sort((a,b)=>b.sw-a.sw).slice(0,3);
+ const root=o.games.filter(g=>!g.focusGame&&g.nHome>30&&g.nAway>30).map(g=>{const sw=g.pIfHome-g.pIfAway;return{g,sw,want:sw>0?g.home:g.away,over:sw>0?g.away:g.home};}).sort((a,b)=>Math.abs(b.sw)-Math.abs(a.sw)).slice(0,5);
+ let s='<div class="k">All figures come from the same 10,000 simulated seasons; they are model estimates, not guarantees.</div><ul>';
+ if(coin!=null)s+=`<li><b>${coin} wins</b> is the coin-flip line: Ravens make the playoffs in ${pc(o.byWins[coin].p/o.byWins[coin].n)} of sims ending at ${coin} wins (needs ${Math.max(0,coin-cur)} more in ${rem} games).</li>`;
+ if(magic!=null)s+=`<li><b>${magic}+ wins</b> gets them in ≥90% of the time (${Math.max(0,magic-cur)}-${rem-Math.max(0,magic-cur)} or better the rest of the way).</li>`;
+ s+='</ul><table><tr><th>Final W</th><th>Sims</th><th>Playoffs</th><th>Div title</th></tr>'+bw.filter(w=>o.byWins[w].n>=20).map(w=>{const b=o.byWins[w];return `<tr><td>${w}-${17-w}</td><td>${b.n.toLocaleString()}</td><td>${pc(b.p/b.n)}</td><td>${pc(b.d/b.n)}</td></tr>`}).join('')+'</table>';
+ if(big.length)s+='<div style="margin-top:10px"><b>Biggest Ravens swing games</b></div><ul>'+big.map(b=>`<li>Wk ${b.g.week} ${b.home?'vs':'@'} ${T[b.opp].short}: playoffs <b>${pc(b.pw)}</b> with a win, ${pc(b.pl)} with a loss (${(100*b.sw).toFixed(0)}-pt swing)</li>`).join('')+'</ul>';
+ if(root.length)s+='<div style="margin-top:6px"><b>Root for these elsewhere</b></div><ul>'+root.map(r=>`<li>Wk ${r.g.week}: <b>${T[r.want].short}</b> over ${T[r.over].short} (${(100*Math.abs(r.sw)).toFixed(1)}-pt playoff swing)</li>`).join('')+'</ul>';
+ document.getElementById('need').innerHTML=s;}
+document.getElementById('sched').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const id=b.closest('.game').dataset.id;if(b.dataset.f)forced[id]=b.dataset.f;else delete forced[id];run();});
+document.getElementById('reset').onclick=()=>{forced={};run();};
+const M=RavensSim.MODEL,nsp=season.games.filter(g=>!g.completed&&g.spread).length;
+const src=Object.entries(season.sources);
+document.getElementById('foot').innerHTML=`<b>Model assumptions (model estimates — not a prediction from ESPN or any outlet).</b><br>
+• Every team starts the 2026 season at Elo ${M.start} (no preseason prior). Ratings update after each completed 2026 game with K=${M.K}, home-field +${M.hfa} Elo, and a FiveThirtyEight-style margin-of-victory multiplier. With only ${season.games.filter(g=>g.completed).length} games played, ratings are deliberately close to even.<br>
+• Win probability for a remaining game uses a real point spread when ESPN's scoreboard lists one (${nsp} remaining games league-wide, labelled <span class="src spread">SPREAD</span>), converted with a normal model (σ = ${M.spreadSD} pts). Every other game uses the Elo model (labelled <span class="src elo">ELO</span>). Ratings stay fixed within a simulated season. No ties are simulated.<br>
+• Playoffs: 7 seeds per conference (4 division winners + 3 wild cards). Tiebreakers are simplified: win %, then head-to-head win % among the tied teams, then division record (if all tied teams share a division), then conference record, then a coin flip. Real NFL tiebreakers (common games, strength of victory, etc.) are not modelled.<br>
+• ${M.sims.toLocaleString()} simulations, seeded RNG (mulberry32, seed ${M.seed}) so results are reproducible. Forced W/L results apply to the Ravens game in every simulation.<br>
+• Records and results: computed from ESPN scoreboard finals for all 32 teams (BAL ${rec(F)}; data built ${season.generatedAt}).<br>
+<b>Sources</b> (fetched ${src[0][1].fetchedAt.replace('T',' ')}): ESPN public site API — <a href="https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=1">weekly scoreboards (weeks 1–18)</a>, <a href="https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/bal/schedule">Ravens schedule</a>, <a href="https://site.api.espn.com/apis/v2/sports/football/nfl/standings?season=2026&level=3">division standings</a>. Week 5 line cross-checked with the Film Room scouting tab: ${season.scoutSpread.details} (${season.scoutSpread.provider}, fetched ${season.scoutSpread.fetchedAt}).`;
+run();})();
+</script></body></html>

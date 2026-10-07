@@ -1,0 +1,86 @@
+{
+ "scoreboard_w01.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=1&limit=50",
+  "fetchedAt": "2026-10-07T18:28:18-04:00"
+ },
+ "scoreboard_w02.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=2&limit=50",
+  "fetchedAt": "2026-10-07T18:28:19-04:00"
+ },
+ "scoreboard_w03.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=3&limit=50",
+  "fetchedAt": "2026-10-07T18:28:19-04:00"
+ },
+ "scoreboard_w04.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=4&limit=50",
+  "fetchedAt": "2026-10-07T18:28:19-04:00"
+ },
+ "scoreboard_w05.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=5&limit=50",
+  "fetchedAt": "2026-10-07T18:28:20-04:00"
+ },
+ "scoreboard_w06.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=6&limit=50",
+  "fetchedAt": "2026-10-07T18:28:20-04:00"
+ },
+ "scoreboard_w07.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=7&limit=50",
+  "fetchedAt": "2026-10-07T18:28:20-04:00"
+ },
+ "scoreboard_w08.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=8&limit=50",
+  "fetchedAt": "2026-10-07T18:28:21-04:00"
+ },
+ "scoreboard_w09.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=9&limit=50",
+  "fetchedAt": "2026-10-07T18:28:21-04:00"
+ },
+ "scoreboard_w10.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=10&limit=50",
+  "fetchedAt": "2026-10-07T18:28:21-04:00"
+ },
+ "scoreboard_w11.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=11&limit=50",
+  "fetchedAt": "2026-10-07T18:28:22-04:00"
+ },
+ "scoreboard_w12.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=12&limit=50",
+  "fetchedAt": "2026-10-07T18:28:22-04:00"
+ },
+ "scoreboard_w13.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=13&limit=50",
+  "fetchedAt": "2026-10-07T18:28:23-04:00"
+ },
+ "scoreboard_w14.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=14&limit=50",
+  "fetchedAt": "2026-10-07T18:28:23-04:00"
+ },
+ "scoreboard_w15.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=15&limit=50",
+  "fetchedAt": "2026-10-07T18:28:23-04:00"
+ },
+ "scoreboard_w16.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=16&limit=50",
+  "fetchedAt": "2026-10-07T18:28:23-04:00"
+ },
+ "scoreboard_w17.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=17&limit=50",
+  "fetchedAt": "2026-10-07T18:28:24-04:00"
+ },
+ "scoreboard_w18.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=18&limit=50",
+  "fetchedAt": "2026-10-07T18:28:24-04:00"
+ },
+ "schedule_bal.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/bal/schedule",
+  "fetchedAt": "2026-10-07T18:28:24-04:00"
+ },
+ "teams.json": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams?limit=40",
+  "fetchedAt": "2026-10-07T18:28:25-04:00"
+ },
+ "standings.json": {
+  "url": "https://site.api.espn.com/apis/v2/sports/football/nfl/standings?season=2026",
+  "fetchedAt": "2026-10-07T18:28:25-04:00"
+ }
+}
